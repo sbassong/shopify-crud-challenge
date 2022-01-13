@@ -1,7 +1,7 @@
 {
   "name": "shopify-backend-challenge",
   "version": "1.0.0",
-  "description": "By: Sam Bassong",
+  "description": "Full CRUD inventory tracking web application",
   "main": "server.js",
   "scripts": {
     "dev": "nodemon app.js",
