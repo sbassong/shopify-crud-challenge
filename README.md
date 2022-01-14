@@ -2,7 +2,7 @@
 By: Sam Bassong
 
 ## **Description**
-### Full CRUD inventory tracking web application. Submisison for Backend internship application with Shopify
+### Full CRUD inventory tracking web application. Submisison for Backend and Infrastructure internship application with Shopify
 
 ## **Technologies**
 *  [Express](https://expressjs.com/) 
