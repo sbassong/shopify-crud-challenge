@@ -1,4 +1,4 @@
-# **Shopify Backend Developer Internship Challenge**
+# **Shopify Internship CRUD Challenge**
 By: Sam Bassong
 
 ## **Description**
@@ -10,12 +10,12 @@ By: Sam Bassong
 *  [PostgreSQL](https://www.postgresql.org/)
 
 ## **ORMs**
-*  [Sequelize](https://axios-http.com/)
+*  [Sequelize](https://sequelize.org/master/)
 
 ***
 
-## **Requirements**
-Node, npm, and postgreSQL are necessary to run this application. If needed, please follow the installation guidelines **[below](##**Requirements**)**
+## **Requirements for machine**
+Node, npm, and PostgreSQL are necessary to run this application. If needed, please follow the installation guidelines **[below](#requirements)**
 
 ***
 
@@ -46,7 +46,7 @@ Node, npm, and postgreSQL are necessary to run this application. If needed, plea
     ```sh 
     sequelize db:migrate
     ```
-1.  *recommended*: Run the following to seed the database with some initial products/items already set up in the `seeders/20220113010356-products.js` file
+1.  *Recommended*: Run the following to seed the database with some initial products/items already set up in the `seeders/20220113010356-products.js` file
 
     *Feel free to modify the products or add your own, following the Item model guidelines*
 
@@ -57,11 +57,12 @@ Node, npm, and postgreSQL are necessary to run this application. If needed, plea
     ```sh 
     npm run dev 
     ```
+***
 
 ## **Manual testing**
 * I recommend using Either [Postman](https://www.postman.com/downloads/) or [Insomnia](https://insomnia.rest/download) to test the following endpoints.
 
-    ### Endpoints:
+    ### *Endpoints*:
     Replace `<placeholder>` with appropriate values and supply both PUT and POST request with a JSON body following the Item model
 
     * POST: *Create inventory items* -> `http://localhost:3001/inventory/item/create`
@@ -70,7 +71,9 @@ Node, npm, and postgreSQL are necessary to run this application. If needed, plea
     * GET: *View a list of inventory items* -> `http://localhost:3001/inventory/items`
     * GET: *Filter inventory items by query (name, category, or price)* -> `http://localhost:3001/inventory/items/filter/<query>`
 
-* alternatively, use the following curl commands to test the api on your terminal
+    <br>
+
+* **Alternatively**, use the following curl commands to test the api on your terminal
 
     *Add the `-v` flag after `curl` to return a more verbose/informative response*
 
@@ -96,8 +99,8 @@ Node, npm, and postgreSQL are necessary to run this application. If needed, plea
 
 ***
 
+## **Requirements**
 <details>
-<summary><h2><strong>Requirements</strong></h2></summary >
 Node, npm, and postgreSQL are necessary to run this application. please follow the installation guidelines below:
 
 * ### ***Node + npm***
@@ -113,7 +116,7 @@ Node, npm, and postgreSQL are necessary to run this application. please follow t
     * Head to the official [PostgreSQL](https://www.postgresql.org/download/) documentation, choose your operating system family and follow your preferred installation route
     * My preferred installation method for Linux/MacOS:
 
-        1. install homebrew by running this command on your CLI
+        1. install homebrew by running this command in your termninal
 
                 /bin/bash -c "$(curl -fsSL https://raw githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         2. follow this each of the following line **one by one**
