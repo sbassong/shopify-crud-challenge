@@ -1,8 +1,8 @@
 const Router = require('express').Router()
-const ItemsRouter = require('./ItemsRouter')
+const ItemRouter = require('./ItemRouter')
 
 
-Router.use('/inventory', ItemsRouter)
+Router.use('/inventory', ItemRouter)
 
 
 module.exports = Router 

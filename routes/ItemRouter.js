@@ -1,5 +1,5 @@
 const Router = require('express').Router()
-const controller = require('../controllers/ItemsController')
+const controller = require('../controllers/ItemController')
 
 //POST
 Router.post('/item/create', controller.CreateItem)
@@ -9,7 +9,7 @@ Router.put('/update/:item_id', controller.UpdateItem)
 
 //GET
 Router.get('/items', controller.GetAllItems)
-Router.get('/items/filter/:filter_value', controller.FilterBasedOnAttribute)
+Router.get('/items/filter/:query', controller.FilterBasedOnQuery)
 
 //DELETE
 Router.delete('/delete/:item_id', controller.DeleteItem)

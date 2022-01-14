@@ -1,11 +1,11 @@
-const { Items } = require('../models')
+const { Item } = require('../models')
 const { Op } = require('sequelize')
 
 
 
 const CreateItem = async (req, res) => {
   try {
-    const item = await Items.create(req.body)
+    const item = await Item.create(req.body)
     res.status(201).send(item)
   } catch (error) {
       throw error
@@ -14,7 +14,7 @@ const CreateItem = async (req, res) => {
 
 const GetAllItems = async (req, res) => {
   try {
-    const items = await Items.findAll()
+    const items = await Item.findAll()
     res.status(200).send(items)
   } catch (error) {
     throw error
@@ -24,7 +24,7 @@ const GetAllItems = async (req, res) => {
 const UpdateItem = async (req, res) => {
   try {
     let itemId = parseInt(req.params.item_id)
-    let updatedItem = await Items.update(req.body, {
+    let updatedItem = await Item.update(req.body, {
       where: {id: itemId},
       returning: true
     })
@@ -38,30 +38,33 @@ const UpdateItem = async (req, res) => {
 const DeleteItem = async (req, res) => {
   try {
     let itemId = parseInt(req.params.item_id)
-    await Items.destroy({
+    await Item.destroy({
       where: {id: itemId}
     })
+
     res.status(200).send({msg: `Item with id ${itemId} has been successfully deleted!`})
   } catch (error) {
     throw error
   }
 }
 
-const FilterBasedOnAttribute = async (req, res) => {
+const FilterBasedOnQuery = async (req, res) => {
   try {
-    let filterValue = req.params.filter_value.toLowerCase()
+    let query = req.params.query
+    let lowCaseQuery = query.toLowerCase()
 
-    const items = await Items.findAll()
+    const items = await Item.findAll()
 
-    let filteredItems = items.filter(item => {
-      let nameMatch = item.name.toLowerCase().includes(filterValue)
-      let categoryMactch = item.category.toLowerCase().includes(filterValue)
-      let parsedValue = parseInt(filterValue)
+    const filteredItems = items.filter(item => {
+      const {price, category, name} = item
+      let nameMatch = name.toLowerCase().includes(lowCaseQuery)
+      let categoryMatch = category.toLowerCase().includes(lowCaseQuery)
+      let parsedValue = parseInt(lowCaseQuery)
 
-      if (item.price === parsedValue) {
+      if (price === parsedValue) {
         return item
       }
-      else if ( nameMatch || categoryMactch) {
+      else if ( nameMatch || categoryMatch) {
         return item
       } 
       return
@@ -69,7 +72,7 @@ const FilterBasedOnAttribute = async (req, res) => {
     
     filteredItems.length > 0
     ? res.status(200).send(filteredItems)
-    : res.status(404).send({msg: `No item matching '${filterValue}' in inventory`})
+    : res.status(404).send({msg: `No item matching '${query}' in inventory`})
   } catch (error) {
     
   }
@@ -80,5 +83,5 @@ module.exports = {
   CreateItem,
   UpdateItem,
   DeleteItem,
-  FilterBasedOnAttribute
+  FilterBasedOnQuery
 }
