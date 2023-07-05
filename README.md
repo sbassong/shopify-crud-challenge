@@ -73,6 +73,18 @@ Node, npm, and PostgreSQL are necessary to run this application. If needed, plea
 
     <br>
 
+    * **Example JSON data** *with Javascript Date object instance*
+
+        {
+            "name": 'Audio Technica M150x',
+            "category": 'Headphones',
+            "price": 150,
+            "createdAt": <new Date()>,
+            "updatedAt": <new Date()>
+        }
+
+    <br>
+
 * **Alternatively**, use the following curl commands to test the api on your terminal
 
     *Add the `-v` flag after `curl` to return a more verbose/informative response*
